@@ -29,3 +29,6 @@ SELECT yr, subject, winner FROM nobel
 
 SELECT yr, subject, winner FROM nobel
   WHERE yr = 1980 AND subject NOT IN('Chemistry', 'Medicine')
+
+SELECT yr, subject, winner FROM nobel
+  WHERE subject = 'Medicine' AND yr < 1910 OR subject = 'Literature' AND yr >= 2004
