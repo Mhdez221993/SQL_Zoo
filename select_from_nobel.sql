@@ -26,3 +26,6 @@ SELECT winner FROM nobel
 
 SELECT yr, subject, winner FROM nobel
   WHERE subject = 'Physics' AND yr = 1980 OR subject = 'Chemistry' AND yr = 1984
+
+SELECT yr, subject, winner FROM nobel
+  WHERE yr = 1980 AND subject NOT IN('Chemistry', 'Medicine')
