@@ -33,3 +33,5 @@ SELECT name,length(name)
 SELECT name,length(name)
   FROM world
   WHERE length(name)=5 and continent='Europe'
+
+SELECT name, area*2 FROM world WHERE population = 64000
