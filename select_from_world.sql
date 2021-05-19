@@ -11,3 +11,6 @@ SELECT name, gdp/population FROM world
 
 SELECT name, population/1000000 FROM world
   WHERE continent = 'South America'
+
+SELECT name, population FROM world
+  WHERE name IN ('France', 'Germany', 'Italy')
