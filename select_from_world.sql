@@ -34,3 +34,7 @@ SELECT name, ROUND(gdp/population, -3) FROM world
 SELECT name, capital
   FROM world
   WHERE LEN(name) = LEN(capital)
+
+SELECT name, capital
+  FROM world
+  WHERE LEFT(name,1) = LEFT(capital,1) AND name <> capital
