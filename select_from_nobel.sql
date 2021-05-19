@@ -34,3 +34,7 @@ SELECT yr, subject, winner FROM nobel
   WHERE subject = 'Medicine' AND yr < 1910 OR subject = 'Literature' AND yr >= 2004
 
 SELECT * FROM nobel WHERE winner = 'PETER GRÜNBERG'
+
+SELECT * FROM nobel WHERE winner = 'EUGENE O''NEI'
+
+SELECT winner, yr, subject FROM nobel WHERE winner LIKE 'Sir%' ORDER BY yr DESC, winner
