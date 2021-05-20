@@ -92,7 +92,6 @@ SELECT DISTINCT yr
   WHERE yr ='1960' 
   GROUP BY subject
 
-
 -- Chemistry	1
 -- Literature	1
 -- Medicine	2
