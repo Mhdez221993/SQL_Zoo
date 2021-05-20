@@ -11,3 +11,7 @@ SELECT player, teamid, stadium, mdate
 
 select team1, team2, player from game join goal on id = matchid
 where player like 'Mario%'
+
+SELECT player, teamid, coach, gtime
+  FROM goal join eteam on id = teamid
+  WHERE gtime<=10
