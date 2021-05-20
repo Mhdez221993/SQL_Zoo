@@ -40,3 +40,7 @@ Select continent, name
 Select continent, MIN(name) AS country
 From world
 GROUP BY continent
+
+SELECT name, continent, population FROM world 
+  WHERE not continent in 
+  (select distinct continent from world where population > 25000000)
