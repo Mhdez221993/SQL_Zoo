@@ -19,3 +19,6 @@ SELECT player, teamid, coach, gtime
 select mdate, teamname from game 
   join eteam on team1=eteam.id
   where coach = 'Fernando Santos'
+
+select player from game join goal on id = matchid
+  where stadium = 'National Stadium, Warsaw'
