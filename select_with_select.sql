@@ -25,3 +25,9 @@ SELECT name FROM world
   WHERE gdp > ALL
    (SELECT gdp FROM world
    WHERE continent = 'Europe' AND gdp IS NOT NULL)
+
+SELECT continent, name, area FROM world x
+  WHERE area >= ALL
+    (SELECT area FROM world y
+        WHERE y.continent=x.continent
+          AND population>0)
