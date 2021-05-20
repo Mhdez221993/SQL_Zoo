@@ -15,3 +15,7 @@ where player like 'Mario%'
 SELECT player, teamid, coach, gtime
   FROM goal join eteam on id = teamid
   WHERE gtime<=10
+
+select mdate, teamname from game 
+  join eteam on team1=eteam.id
+  where coach = 'Fernando Santos'
