@@ -44,3 +44,8 @@ GROUP BY continent
 SELECT name, continent, population FROM world 
   WHERE not continent in 
   (select distinct continent from world where population > 25000000)
+
+SELECT x.name, x.continent FROM world x
+  WHERE 
+    population/3 > ALL
+      (SELECT population FROM world y WHERE x.continent = y.continent AND x.name != y.name)
