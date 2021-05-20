@@ -22,3 +22,7 @@ select mdate, teamname from game
 
 select player from game join goal on id = matchid
   where stadium = 'National Stadium, Warsaw'
+
+SELECT distinct player
+  FROM game JOIN goal ON matchid = id 
+    WHERE team1='GER'  AND teamid <> 'GER' OR team2='GER' AND teamid <> 'GER'
