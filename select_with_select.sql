@@ -31,3 +31,12 @@ SELECT continent, name, area FROM world x
     (SELECT area FROM world y
         WHERE y.continent=x.continent
           AND population>0)
+
+Select continent, name
+  From world x
+  Where name <= ALL (select y.name from world y where x.continent=y.continent)
+  ORDER BY continent
+
+Select continent, MIN(name) AS country
+From world
+GROUP BY continent
