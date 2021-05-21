@@ -26,3 +26,9 @@ select name, case when dept = 1 then 'Sci'
             when dept = 2 then 'Sci'
             else 'Art' end
   from teacher
+
+select name, case when dept = 1 then 'Sci'
+            when dept = 2 then 'Sci'
+            when dept = 3 then 'Art'
+            else 'None' end
+  from teacher
