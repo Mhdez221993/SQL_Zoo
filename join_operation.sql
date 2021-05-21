@@ -40,3 +40,8 @@ SELECT matchid,mdate, count(gtime) FROM game
   JOIN goal ON matchid = id
   WHERE (team1 = 'POL' OR team2 = 'POL')
   group by matchid, mdate
+
+select matchid, mdate, count(gtime) from game
+  join goal on id = matchid
+  where team1 = 'GER' AND teamid = 'GER' or team2 = 'GER' AND teamid = 'GER'
+  group by matchid, mdate
