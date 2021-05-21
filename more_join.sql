@@ -8,3 +8,8 @@ select yr from movie
 select id, title, yr from movie
   where title LIKE '%Star Trek%'
   order by yr
+
+select actorid from actor
+  join casting on actor.id = casting.actorid
+  where name = 'Glenn Close'
+  group by actorid
