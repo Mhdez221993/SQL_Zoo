@@ -16,3 +16,7 @@ select actorid from actor
 
 select id from movie
   where title = 'Casablanca'
+
+select name from actor
+  join casting on id = actorid
+  where movieid= 11768
