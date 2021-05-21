@@ -54,3 +54,16 @@ SELECT title, name FROM movie join casting on movie.id = movieid
     select movieid from casting where actorid IN (
     select id from actor where name = 'Julie Andrews'))
   and ord=1
+
+SELECT actor.name
+   FROM actor JOIN casting ON actor.id = casting.actorid
+   WHERE ord = 1
+   GROUP BY name
+   HAVING COUNT(name) >= 15
+   ORDER BY name
+
+select title, count(actorid) from movie join casting on movie.id = movieid join actor on 
+  actor.id = actorid
+  where yr = 1978
+  group by title
+  order by count(actorid) DESC, titl  
