@@ -45,3 +45,12 @@ select matchid, mdate, count(gtime) from game
   join goal on id = matchid
   where team1 = 'GER' AND teamid = 'GER' or team2 = 'GER' AND teamid = 'GER'
   group by matchid, mdate
+
+SELECT mdate,
+  team1,
+  sum(CASE WHEN teamid=team1 THEN 1 ELSE 0 END) AS score1,
+  team2,
+  sum(CASE WHEN teamid=team2 THEN 1 ELSE 0 END) AS score2
+  FROM game LEFT JOIN goal ON matchid = id
+  GROUP BY mdate, team1, team2
+  ORDER BY mdate,matchid,team1,team2
