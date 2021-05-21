@@ -13,3 +13,6 @@ select actorid from actor
   join casting on actor.id = casting.actorid
   where name = 'Glenn Close'
   group by actorid
+
+select id from movie
+  where title = 'Casablanca'
