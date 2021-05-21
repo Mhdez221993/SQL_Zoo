@@ -35,3 +35,8 @@ select title from movie
   join casting on movie.id = movieid
   join actor on actor.id = actorid
   where name = 'Harrison Ford' AND ord <> 1
+
+select title, name from movie
+  join casting on movie.id = movieid
+  join actor on actor.id = actorid
+  where ord = 1 AND yr = 1
