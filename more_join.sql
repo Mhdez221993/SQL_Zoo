@@ -67,3 +67,13 @@ select title, count(actorid) from movie join casting on movie.id = movieid join 
   where yr = 1978
   group by title
   order by count(actorid) DESC, titl  
+
+select name from actor join casting on id = actorid 
+  where actorid in (
+    select movieid from casting where actorid in (
+      select id from actor where name = 'Art Garfunkel'))
+
+select name from actor join casting on id = actorid 
+  where movieid in (
+    select movieid from casting where actorid in (
+      select id from actor where name = 'Art Garfunkel')) AND name <> 'Art Garfunkel'
