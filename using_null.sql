@@ -13,3 +13,6 @@ SELECT teacher.name, dept.name
            ON (teacher.dept=dept.id)
 
 select name, COALESCE(mobile, '07986 444 2266') from teacher
+
+select teacher.name, COALESCE(dept.name, 'None') from teacher
+  left join dept on teacher.dept = dept.id
