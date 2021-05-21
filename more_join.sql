@@ -25,3 +25,8 @@ select name from actor
   join casting on id = actorid
   join movie on movie.id = movieid
   where title = 'Alien'
+
+select title from movie
+  join casting on movie.id = movieid
+  join actor on actor.id = actorid
+  where name = 'Harrison Ford'
