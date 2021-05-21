@@ -20,3 +20,8 @@ select id from movie
 select name from actor
   join casting on id = actorid
   where movieid= 11768
+
+select name from actor
+  join casting on id = actorid
+  join movie on movie.id = movieid
+  where title = 'Alien'
