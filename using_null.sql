@@ -18,3 +18,6 @@ select teacher.name, COALESCE(dept.name, 'None') from teacher
   left join dept on teacher.dept = dept.id
 
 select COUNT(case when name then 1 else 0 end), COUNT(mobile) from teacher
+
+select dept.name, count(teacher.name) from teacher right join dept on teacher.dept = dept.id
+  group by dept.nam
