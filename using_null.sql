@@ -21,3 +21,8 @@ select COUNT(case when name then 1 else 0 end), COUNT(mobile) from teacher
 
 select dept.name, count(teacher.name) from teacher right join dept on teacher.dept = dept.id
   group by dept.nam
+
+select name, case when dept = 1 then 'Sci'
+            when dept = 2 then 'Sci'
+            else 'Art' end
+  from teacher
