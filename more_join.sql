@@ -40,3 +40,10 @@ select title, name from movie
   join casting on movie.id = movieid
   join actor on actor.id = actorid
   where ord = 1 AND yr = 1
+
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+        JOIN actor   ON actorid=actor.id
+  WHERE name='Rock Hudson'
+  GROUP BY yr
+  HAVING COUNT(title) > 2
