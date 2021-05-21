@@ -26,3 +26,7 @@ select player from game join goal on id = matchid
 SELECT distinct player
   FROM game JOIN goal ON matchid = id 
     WHERE team1='GER'  AND teamid <> 'GER' OR team2='GER' AND teamid <> 'GER'
+
+SELECT teamname, count(gtime)
+  FROM eteam JOIN goal ON id=teamid
+  group by teamname
