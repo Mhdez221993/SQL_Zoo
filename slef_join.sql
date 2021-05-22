@@ -30,3 +30,50 @@ FROM route a JOIN route b ON
   JOIN stops stopa ON (a.stop=stopa.id)
   JOIN stops stopb ON (b.stop=stopb.id)
 WHERE stopa.name='Craiglockhart' and stopb.name = 'London Road'
+
+-- 7.Give a list of all the services which connect stops 115 and 137 ('Haymarket' and 'Leith')
+select r1.company, r1.num from route r1 join route r2 on r1.company = r2.company AND r1.num = r2.num
+  join stops sta on sta.id = r1.stop
+  join stops stb on stb.id = r2.stop
+  where r1.stop = 115 and r2.stop=137
+  group by r1.company, r1.num
+
+
+-- 8.Give a list of the services which connect the stops 'Craiglockhart' and 'Tollcross'
+select r1.company, r1.num from route r1 join route r2 on r1.company = r2.company AND r1.num = r2.num
+  join stops sta on sta.id = r1.stop
+  join stops stb on stb.id = r2.stop
+  where sta.name = 'Craiglockhart' and stb.name='Tollcross'
+  group by r1.company, r1.num
+
+-- 9.Give a distinct list of the stops which may be reached from 'Craiglockhart' by taking one bus, including 'Craiglockhart' itself, offered by the LRT company. Include the company and bus no. of the relevant services.
+select sta.name, r1.company, r1.num from route r1 join route r2 on r1.company = r2.company AND r1.num = r2.num
+  join stops sta on sta.id = r1.stop
+  join stops stb on stb.id = r2.stop
+  where stb.name = 'Craiglockhart' and r1.company='LRT'
+  group by sta.name, r1.company, r1.num
+  order by r1.num, r1.pos
+
+-- 10.Find the routes involving two buses that can go from Craiglockhart to Lochend. Show the bus no. and company for the first bus, the name of the stop for the transfer, and the bus no. and company for the second bus.
+SELECT S.num, S.company, S.name, T.num, T.company 
+FROM 
+    (SELECT DISTINCT a.num, a.company, sb.name 
+     FROM route a JOIN route b ON (a.num = b.num and a.company = b.company) 
+                  JOIN stops sa ON sa.id = a.stop 
+                  JOIN stops sb ON sb.id = b.stop 
+     WHERE sa.name = 'Craiglockhart' AND sb.name <> 'Craiglockhart'
+)S
+
+JOIN
+
+    (SELECT x.num, x.company, sy.name 
+     FROM route x JOIN route y ON (x.num = y.num and x.company = y.company) 
+                  JOIN stops sx ON sx.id = x.stop 
+                  JOIN stops sy ON sy.id = y.stop 
+     WHERE sx.name = 'Lochend' AND sy.name <> 'Lochend'
+    )T
+
+ON (S.name = T.name)
+ORDER BY S.num, S.name, T.num
+
+  
