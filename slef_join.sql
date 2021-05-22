@@ -1,0 +1,1 @@
+select count(name) from stops
